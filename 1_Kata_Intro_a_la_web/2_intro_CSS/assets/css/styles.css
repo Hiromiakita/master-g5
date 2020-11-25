@@ -1,0 +1,47 @@
+/* AGREGAR FUENTES DE INTERNET */
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&family=Roboto&display=swap");
+
+/* AGREGRAR FUENTES LOCALES */
+@font-face {
+    font-family: "NerkoOne-Regular";
+    src: url("../fonts/NerkoOne-Regular.ttf");
+}
+
+/* 
+SELECTORES DE ETIQUETA
+*/
+li {
+    font-size: 20px;
+    font-weight: 900;
+    list-style: none;
+    font-family: "NerkoOne-Regular";
+}
+
+p {
+    color: #a52a2a;
+}
+h2 {
+    color: #0c0602;
+    font-weight: bold;
+    font-size: medium;
+}
+
+/* 
+SELECTORES ID
+*/
+#encabezado {
+    color: #8a2be2;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 50px;
+    font-style: oblique;
+}
+
+/* 
+SELECTORES CSS 
+*/
+.subtitulo {
+    color: #d2691e;
+    font-weight: bold;
+    font-size: medium;
+}

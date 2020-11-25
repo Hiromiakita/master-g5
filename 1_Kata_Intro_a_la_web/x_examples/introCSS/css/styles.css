@@ -1,0 +1,36 @@
+/* .titulo {
+    color: green;
+} */
+
+/* .descripcion {
+    color: violet;
+} */
+
+
+/* afectas ambas clases */
+.titulo, .descripcion {
+    color: green;
+}
+
+/* buscas una etiqueta dentro de otra y afectas a esa */
+.contenedor .descripcion {
+    background-color: yellow;
+}
+
+/* .principal {
+    background-color: violet;
+    color:green;
+} */
+
+.principal * {
+    background-color: violet;
+    color: white;
+}
+
+.contenedor-imagen{
+    text-align: center;
+}
+
+.imagen-centro {
+    margin: 0 auto;
+}

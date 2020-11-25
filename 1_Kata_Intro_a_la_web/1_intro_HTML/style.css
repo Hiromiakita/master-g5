@@ -1,0 +1,11 @@
+.contendor {
+    display: flex;
+}
+
+.button-inicio {
+    margin: 10px;
+}
+
+.mi-modal {
+    background-color: blue;
+}
