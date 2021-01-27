@@ -15,14 +15,37 @@
 // números cool a los que son divisibles entre 3 y 5, el quiere crear un programa en el
 // cual el ingrese un número y le diga si es cool o no, ¿puedes ayudarlo?
 
+// var numeroUsuario = prompt("Ingresa un número");
+
+// if(numeroUsuario%3 === 0 && numeroUsuario%5 === 0) {
+//     console.log("cool");
+// }
+
 // Arnoldo sigue en su búsqueda de números, ahora busca números raros. Los
 // números raros son aquellos que son divisibles entre 5 y entre 3, pero no entre 2. El
 // quiere crear un programa en el cual ingrese un número y le diga si es raro o no.
+
+
+// var numUsuario2 = prompt("Ingresa un número");
+
+// if(numUsuario2%3 === 0 && numUsuario2%5 === 0 && numUsuario2%2 === 1) {
+//     console.log("número raro");
+// }
 
 // Humberto está repartiendo códigos por toda la ciudad. El quiere crear un programa
 // que cuando un usuario ingrese un código este despliegue un mensaje. Para el
 // código happy el quiere desplegar el mensaje “cool bro, the life is short” y para el
 // código sad él quiere, desplegar el mensaje “go for tacos bro, tacos = smile”
+
+var codigo = prompt("Ingresa el código") ;
+
+if(codigo === "happy") {
+    console.log("cool bro, the life is short");
+} else if(codigo === "sad") {
+    console.log("go for tacos bro, tacos = smile");
+} else {
+    console.log("código inválido");
+}
 
 // Paco está haciendo un videojuego y necesita hacer un programa que determine la
 // jerarquía de usuario de acuerdo a su nivel, las jerarquías son paladin : nivel 0 -10,
