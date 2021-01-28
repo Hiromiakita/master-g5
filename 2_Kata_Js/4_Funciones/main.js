@@ -14,7 +14,6 @@ function saludar() {
 // saludar();
 
 
-
 function sumar() {
     let numero1 = 1;
     let numero2 = 5;
@@ -81,3 +80,31 @@ console.log(resultadoResta);
 let resultadoResta2 = restar(15, 10);
 console.log(resultadoResta2);
 
+
+
+
+
+
+//EXTRA
+
+//FUNCIONES ANÓNIMAS
+
+let multiplicar = function (num1, num2, num3) {
+    let resultado = num1 * num2 * num3;
+    return resultado;
+}
+
+let resultadoMult = multiplicar(5, 4, 2);
+console.log(resultadoMult);
+
+//FUNCIÓN FLECHA
+
+let dividir = (numero1, numero2) => {
+    let resultado = numero1/numero2;
+    return resultado;
+}
+
+let resultadoDivision = dividir(20,5);
+console.log("Resultado división: ", resultadoDivision);
+
+//ECMAScript6
