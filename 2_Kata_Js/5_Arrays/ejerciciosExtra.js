@@ -1,5 +1,16 @@
 //RESOLVER LOS SIGUIENTES EJERCICIOS USANDO ARREGLOS
 
+// Guardar en un array los 20 primeros números pares
+
+// Crear una función que nos ayude a 
+// leer un arreglo de enteros y sacar su media y promedio 
+//      (ejemplo de arreglo: [5,7,10,9,9,8,6,2,3,9,7,5] )
+
+// Almacenar en un arreglo los nombres y sueldos de 8 empleados
+
+// Del arreglo anterior determinar cuál es el empleado que más gana
+
+
 // Joel ya recibió sus calificaciones 10, 8, 9, 10, 7 , 10, 9. ¿podrías sacar su promedio
 // usando menos de 5 variables?
 
