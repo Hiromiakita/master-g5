@@ -158,42 +158,52 @@ console.log(sumarTodos(100));
 
 // Hacer una función que imprima una pirámide de asteriscos como la siguiente:
        
-//                      *
-//                     * *
-//                    * * *
-//                   * * * *
-//                  * * * * *
+//              0        *        vuelta * 2 + 1
+//              1       ***
+//              2      *****
+//              3     *******
+//              4    *********
 
 
 
+function mostrarPiramide(altura) {
+    //Ciclo para crear los dintos renglones
+    for(let i = 0; i < altura; i++) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let imprimirPiramide = (n) => // n es el número de pisos de la pirámide 
-{
-    for (let i = 0; i < n; i++) {
-        let str = '';
-        for (let j = 1; j < n - i; j++) {
-            str = str + ' ';
+        let fila = '';
+        //coloca los espacios de acuerdo a la fila o al iterador
+        for(let j = 1; j < altura - i; j++) {
+            fila = fila + ' ';
         }
-        for (let k = 1; k <= (2 * i + 1); k++) {
-            str = str + '*';
+        //coloca los asteriscos de acuerdo a la fila o al iterador
+        for (let k = 1; k <= (i * 2 + 1); k++) {
+            fila = fila + '*';
         }
-        console.log(str);
+        console.log(fila);
     }
 }
 
-// imprimirPiramide(10);
+let altura = parseInt(prompt("Ingresa la altura"));
+
+mostrarPiramide(altura);
+
+//corridas de escritorio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
