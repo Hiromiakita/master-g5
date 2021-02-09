@@ -1,6 +1,12 @@
 //RESOLVER LOS SIGUIENTES EJERCICIOS USANDO ARREGLOS
 
 // Guardar en un array los 20 primeros números pares
+let a = [];
+for(let i = 0; a.length <= 20; i+=2) {
+    a.push(i);
+}
+
+console.log(a);
 
 // Crear una función que nos ayude a 
 // leer un arreglo de enteros y sacar su media y promedio 
