@@ -140,3 +140,5 @@ for (i = 0; i < empleados.length; i++) {
 }
 
 console.log(nombre, sueldo);
+
+console.log("Mensaje");
