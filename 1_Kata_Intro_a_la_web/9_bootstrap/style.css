@@ -1,0 +1,13 @@
+.fondo-morado {
+    background-color: rebeccapurple;
+}
+
+.btn-pink {
+    background-color: palevioletred;
+    color: white;
+}
+
+.btn-pink:hover {
+    background-color: purple;
+    color: white;
+}
