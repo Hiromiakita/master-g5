@@ -187,5 +187,3 @@ for (let i = 0; i < data.length; i++) {
 }
 
 console.log(document.body);
-
-JSON.parse(pokemones);
