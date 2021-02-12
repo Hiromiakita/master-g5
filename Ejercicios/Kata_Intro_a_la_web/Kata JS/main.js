@@ -113,3 +113,30 @@ for (let i = 0; i < data.results.length; i++) {
         }
     }
 }
+
+let array = new Array(20);
+let valorPar = 2;
+
+for (let i = 0; i < array.length; i++) {
+    array[i] = valorPar;
+    valorPar = valorPar + 2;
+}
+
+array.push(0);
+
+[1, 2, 3, function () {}];
+
+console.log(array);
+
+let sueldo = 0;
+let nombre = "";
+
+const empleados = ["Esteban", 900, "Miguel", 1000, "Hiromi", 500];
+for (i = 0; i < empleados.length; i++) {
+    if (sueldo < empleados[i + 1]) {
+        nombre = empleados[i];
+        sueldo = empleados[i + 1];
+    }
+}
+
+console.log(nombre, sueldo);
