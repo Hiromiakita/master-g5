@@ -5,14 +5,14 @@
 // let union = new Set([...ingenieros, ...freelancers]);
 // console.log(union);
 
-// INTERSECCION (buscar si un elemento de un conjunto esta en otro conjunto)
-// let ingenieros = new Set(["Manuel", "Pablo", "Hiromi", "Laura", "Miguel"]);
-// console.log(ingenieros.has("Juan"));
+//  INTERSECCION (buscar si un elemento de un conjunto esta en otro conjunto)
+let ingenieros = new Set(["Manuel", "Pablo", "Hiromi", "Laura", "Miguel"]);
+console.log(ingenieros.has("Juan"));
 
-// let ingenieros = new Set(["Manuel", "Pablo", "Hiromi", "Laura", "Miguel"]);
-// let freelancers = new Set(["Luis", "Manuel", "Jose", "Rene", "Hiromi"]);
-// let interseccion = new Set([...ingenieros].filter((x) => freelancers.has(x)));
-// console.log(interseccion);
+let ingenieros = new Set(["Manuel", "Pablo", "Hiromi", "Laura", "Miguel"]);
+let freelancers = new Set(["Luis", "Manuel", "Jose", "Rene", "Hiromi"]);
+let interseccion = new Set([...ingenieros].filter((x) => freelancers.has(x)));
+console.log(interseccion);
 
 // DIFERENCIA
 // let ingenieros = new Set(["Manuel", "Pablo", "Hiromi", "Laura", "Miguel"]);
