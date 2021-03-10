@@ -6,6 +6,64 @@
 //    mientras que el maestro de música tiene un atributo "edad"
 //    también guardando un valor numérico.
 
+// super clae Maestro
+
+class Maestro {
+    constructor(materia, calificaciones) {
+        this.materia = materia;
+        this.califacaciones = calificaciones;
+        // [10, 10, 9, 8, 7]
+    }
+    calcularPromedio() {
+        let suma = 0;
+        let promedio = 0;
+
+        //sumar todas las calificaciones
+        for (let i = 0; i < this.califacaciones.length; i++) {
+            suma += this.califacaciones[i];
+        }
+
+        //dividir la suma entre la cantidad de calificaciones que tenemos
+
+        promedio = suma/this.califacaciones.length;
+
+        console.log(`El promedio es ${promedio}`);
+        return promedio;
+    }
+}
+
+let m1 = new Maestro('Inglés', [100, 90, 70, 90, 100, 100, 100, 90, 70, 60]);
+console.log(m1);
+m1.calcularPromedio();
+
+//subclase maestro de física
+
+class MaestroFisica extends Maestro {
+    constructor(materia, calificaciones, antiguedad) {
+        super(materia, calificaciones);
+        this.antiguedad = antiguedad;
+    }
+}
+
+let mf1 = new MaestroFisica('física', [90, 90, 90, 80, 70, 60], 5);
+console.log(mf1);
+
+mf1.calcularPromedio();
+
+// subclase maestro de música
+
+class MaestroMusica extends Maestro {
+    constructor(materia, calificaciones, edad) {
+        super(materia, calificaciones);
+        this.edad = edad;
+    }
+}
+
+let mm1 = new MaestroMusica('música', [100, 89, 80, 70], 50);
+console.log(mm1);
+mm1.calcularPromedio();
+
+
 // 2.- Crear la clase construcción que hereda a otras dos 
 //     clases "casa" y "edificio". 
 //     a. Sus atributos son: numPuertas, numVentanas, numPisos,
