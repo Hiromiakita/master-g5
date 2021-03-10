@@ -12,9 +12,13 @@ class Persona {
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
+        this.imc = 0
     }
     calcularIMC() {
-        console.log((this.peso / (this.altura * this.altura)).toFixed(2));
+        let imc = (this.peso / (this.altura * this.altura)).toFixed(2);
+        console.log(imc);
+        this.imc = imc;
+        return imc;
     }
     esMayorDeEdad() {
         if (this.edad > 18) {
