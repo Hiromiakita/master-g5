@@ -6,6 +6,7 @@ console.log('CLASES');
 
 class Alumno {
     // método que nos ayuda a inicializar nuestros objetos
+    // sólo puede haber un método constructor
     // recibe la info del exterior
     // asigna la info a las propiedades de los objetos
 
@@ -44,12 +45,78 @@ class Mascota {
 }
 
 let m1 = new Mascota('perro', 'ponchito', 'café');
-console.log(m1);
-m1.comunicarse();
-m1.asignarDuenio('Hiromi');
+// console.log(m1);
+// m1.comunicarse();
+// m1.asignarDuenio('Hiromi');
 
 let m2 = new Mascota('gato', 'wero', 'amarillo');
-m2.asignarDuenio(m1.duenio);
+// m2.asignarDuenio(m1.duenio);
 
-console.log(m2);
+// console.log(m2);
 // m2.comunicarse();
+
+class Empleado {
+    constructor(nombre, apellido, edad, antiguedad, salario) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.antiguedad = antiguedad;
+        this.salario = salario;
+    }
+}
+
+let empleado = new Empleado ('Hugo', 'Garcias', 20, 5, 1000);
+
+class Profesor {
+    constructor(nombre, apellido, edad, antiguedad, salario, materia) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.antiguedad = antiguedad;
+        this.salario = salario;
+        this.materia = materia;
+        //Inicializar un método en el constructor
+        this.edadCalculada = function () {
+            let num = 10; 
+            console.log('soy un método')
+            return 100;
+        }
+        // Definir un valor inicial con el valor de retorno de un método de la misma clase
+        this.test = this.metodoTest();
+        this.categoría = this.definirCateogría();
+        this.mostrarApellido = function () {
+            console.log('apellido');
+        }
+    }
+    //No podemos tener más de un constructor
+    // constructor(rfc, domicilio) {
+    //     this.rfc = rfc;
+    //     this.domicilio = domicilio;
+    // }
+
+    //inicializamos métodos
+    saludo(nombre, dia) {
+
+    }
+    //método ignorado por existir uno nombrado igual
+    saludo(pais){
+
+    }
+    metodoTest() {
+        return 'mensaje test';
+    }
+    definirCateogría() {
+        return 'Ciencias';
+    }
+    mostrarNombre() {
+        console.log('nombre');
+    }
+}
+
+// let nuevoProfesor = new Profesor ('Diana', 'Gomez', 30, 3, 1000, 'español');
+let profesor = new Profesor('m', 'n', 'hola', 5, 2, 'm');
+console.log('profesor', profesor);
+profesor.saludo()
+profesor.edadCalculada();
+
+let profesor2 = new Profesor();
