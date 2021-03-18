@@ -1,60 +1,97 @@
-console.log('PILA - STACK');
+// Clase Pila
+// métodos: 
+// push
+// pop
 
-let pila = []; // Un arreglo se puede comportar como un pila
-
-// console.log(pila);
-
-// añadir un elemento
-pila.push('elemento 1');
-
-// console.log(pila);
-
-pila.push('elemento 2');
-
-// console.log(pila);
-
-pila.push('elemento 3');
-
-// console.log(pila);
-
-//eliminamos un elemento
-//método por nos regresa el elemento que eliminó.
-// console.log(pila.pop())
-
-// console.log(pila);
-
-// Palíndromos -> ana = ana ... perro != orrep
-
-// Ingrese una palabra
-// Con ayuda de pop, ordenemos la palabra alravés en una nueva variable
-// comparar 
-
-function esPalindromo(palabra) {
-    let arrayPalabra = [];
-    for(let i = 0; i< palabra.length; i++) {
-        arrayPalabra.push(palabra[i])
-    }
-    
-    console.log(arrayPalabra);
-
-    //guardar palabra al revés en un arreglo
-    let arrayPalabraVolteada = [];
-
-    for(let i = 0; i< palabra.length; i++) {
-        arrayPalabraVolteada.push(arrayPalabra.pop());
+class Stack {
+    constructor(){
+        this.count = 0;
+        this.storage = {};
     }
 
-    console.log(arrayPalabraVolteada);
+    push(nvoElemento) { // Añadir elementos al final de nuestra pila
 
-    // if(arrayPalabra == arrayPalabraVolteada) {
-    //     console.log(`${palabra} es un palíndromo`)
-    // } else {
-    //     console.log(`${palabra} NO es un palíndromo`)
-    // }
+        // storage almacena el nuevo elemento
+        // this.storage = {0: 'elemento1', 1: 'elemento 2', 2: 'Elemento 3'};
 
-    //comparar mis arreglos
+        this.storage[this.count] = nvoElemento;
 
-    //retornar o mostrar mensaje de acuerdo a si es o no un palindromo
+        // contador incrementa
+        this.count++
+    }
+
+    pop() { //Eliminar el último elemento insertado
+        
+        // Quitar el último elmento
+
+        //alaceno o hago una copia del elemento que voy a borrar
+        let ultimoElemnto = this.storage[this.count-1];
+
+        //elimino elemento del storage
+        delete this.storage[this.count-1]
+
+        // Disminuir el contador
+        this.count--;
+
+        // retorna el elemento que se eliminó
+        return ultimoElemnto;
+    }
+
+    peek() { //retorna el últmo elemento insertado
+        return this.storage[this.count - 1]
+    }
+
+    length() {
+        return this.count;
+    }
+
 }
 
-esPalindromo('ana');
+
+let miPila = new Stack();
+
+console.log(miPila);
+
+miPila.push('Lau');
+miPila.push('Alexis');
+miPila.push('Miguel');
+miPila.push('Pablo');
+
+console.log(miPila);
+
+console.log('Objeto retornado', miPila.pop());
+
+console.log(miPila);
+
+console.log(miPila.peek());
+console.log(miPila.length());
+
+//NOTAS
+
+// let test = {
+//     nombre : 'Hiromi',
+//     telefono: 3333
+// }
+
+// //acceder a propiedad con un puntito
+// console.log(test.nombre);
+// //acceder a propiedad con un string (nombre de la propiedad)
+// console.log(test['nombre']);
+// //añadir nueva propiead al objeto con un puntito
+// test.apellido = 'Akita';
+// test.ciudad = 'Gdl';
+
+// //añadir propiedad al objeto con corchetes y string
+// test['nombreMascota'] = 'Puppy';
+// test[8] = 'hola';
+
+// console.log(test);
+// console.log(test[8]);
+// // console.log(test.telefono);
+// // console.log(test['telefono']);
+
+// NOTA 2
+
+let arrayTest = ['hola', 'adiós', 'jeje'];
+
+let arrayTest2 = new Array();
