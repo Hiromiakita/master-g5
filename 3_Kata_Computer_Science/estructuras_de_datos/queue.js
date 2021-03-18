@@ -6,7 +6,7 @@ class Queue {
 
     }
 
-    dequeue() { //eliminar el primer elemento de la cola
+    dequeue() { //eliminar el primer elemento de la cola y lo rotorna
 
     }
 
