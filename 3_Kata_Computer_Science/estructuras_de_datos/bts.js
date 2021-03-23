@@ -55,18 +55,39 @@ class Tree {
         }
         return false;
     }
+
+    contains(value) {
+        //Verifica si un dato existe dentro de mi arbol y retorna un mensaje
+        let currentNode = this.root;
+        while (currentNode) {
+            if (value === currentNode.value) {
+                return console.log("Existe el elemento dentro del arbol");
+            } else {
+                if (value < currentNode.value) {
+                    currentNode = currentNode.left;
+                } else {
+                    if (value > currentNode.value) {
+                        currentNode = currentNode.right;
+                    }
+                }
+            }
+        }
+        return console.log("No existe el elemento");
+    }
 }
 
 const myTree = new Tree();
 
-myTree.add(30);
-myTree.add(15);
-myTree.add(60);
-myTree.add(7);
-myTree.add(22);
-myTree.add(17);
-myTree.add(27);
-myTree.add(45);
-myTree.add(75);
+// myTree.add(30);
+// myTree.add(15);
+// myTree.add(60);
+// myTree.add(7);
+// myTree.add(22);
+// myTree.add(17);
+// myTree.add(27);
+// myTree.add(45);
+// myTree.add(75);
+
+myTree.contains(80);
 
 console.log(JSON.stringify(myTree, null, 2));
