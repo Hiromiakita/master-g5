@@ -1,0 +1,27 @@
+{
+  "name": "master-g5",
+  "version": "1.0.0",
+  "description": "Proyecto de prueba con npm y node",
+  "main": "request.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hiromiakita/master-g5.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "request"
+  ],
+  "author": "Manuel Tejada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hiromiakita/master-g5/issues"
+  },
+  "homepage": "https://github.com/Hiromiakita/master-g5#readme",
+  "dependencies": {
+    "request": "2.88.2"
+  }
+}
