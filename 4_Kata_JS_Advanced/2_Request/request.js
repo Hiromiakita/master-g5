@@ -39,18 +39,18 @@ const request = require("request");
 
 // Escribir el codigo para acceder a la informacion que me interesa
 
-const GetPokemonName = (name) => {
-    request.get(
-        `https://pokeapi.co/api/v2/pokemon/${name}`,
-        (error, response, body) => {
-            if (response.statusCode === 200) {
-                const json = JSON.parse(body);
-                console.log(json.forms[0].name);
-            } else {
-                console.log(response.body);
-            }
-        }
-    );
-};
+// const GetPokemonName = (name) => {
+//     request.get(
+//         `https://pokeapi.co/api/v2/pokemon/${name}`,
+//         (error, response, body) => {
+//             if (response.statusCode === 200) {
+//                 const json = JSON.parse(body);
+//                 console.log(json.forms[0].name);
+//             } else {
+//                 console.log(response.body);
+//             }
+//         }
+//     );
+// };
 
-GetPokemonName("pikachu");
+// GetPokemonName("pikachu");
