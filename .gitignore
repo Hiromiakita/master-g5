@@ -1,3 +1,5 @@
 /x_examples
 
 .gitignore
+
+node_modules
