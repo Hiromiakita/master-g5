@@ -25,6 +25,9 @@ let obtenerInfoPokemones = (limite) => {
                     .then(respuestaInd => {
                         // console.log(respuestaInd.data.types);
                         // Crear un objeto individual con info requerida
+
+                        // Crear clase Pokemon -> instancias 
+                        
                         let infoPokemonInd = {
                             nombre: respuestaInd.data.name,
                             urlImagen: respuestaInd.data.sprites.front_default,
