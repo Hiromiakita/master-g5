@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Hiromiakita/master-g5#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "request": "2.88.2"
   }
 }
