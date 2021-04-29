@@ -1,5 +1,8 @@
 // const axios = require('axios');
 
+// Variable global que contiene la info de todos los pokemones
+let allPokemons = [];
+
 // LLamada para traer x cantidad de pokemones
     // 0. Hacer llamada a API (listado de pokemones)
     // 1. Hacer llamda individual para traer la info de cada pokemon
@@ -37,6 +40,8 @@ let obtenerInfoPokemones = (limite) => {
             // Solución provisional -> Promise.all()
             setTimeout(() => {
                 console.log(arrayPokemones);
+                // arreglo global que almacena info de todos los pokemones
+                allPokemons = arrayPokemones;
                 //Contruir el HTML con todos los pokemones
                 crearCards(arrayPokemones);
 
@@ -66,6 +71,15 @@ let crearCards = (pokemones) => {
         // Mostrar info
         titulo.innerText = pokemon.nombre;
         imagen.src = pokemon.urlImagen;
+
+        //Añadir estilos
+        // imagen.style.width = "1rem";
+        card.style.width = "18rem";
+
+        //Añadir clases de bootstrap o personalizadas
+        card.setAttribute("class", "card");
+        // card.setAttribute("class", "bg_purple");
+        
     })
 }
 
@@ -73,3 +87,11 @@ let crearCards = (pokemones) => {
     // 1. TOmamos el arreglo inicial de pokemones y buscamos coincidencias con el input
     // 2. Construyo una tarjeta por cada pokemon que coincide con la búsqueda
 
+let buscar = () => {
+    let busqueda = document.getElementById("valor").value;
+    console.log(allPokemons);
+    let resultados = allPokemons.filter(pokemon => pokemon.nombre.includes(busqueda));
+    console.log(resultados);
+
+    // Eliminar cards de todos los pokemones y mostrar cards de los pokemones filtrados
+}
