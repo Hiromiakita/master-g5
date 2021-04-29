@@ -9,14 +9,21 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body onload="obtenerInfoPokemones(5);" class="bg-primary">
+<body onload="obtenerInfoPokemones(150);" class="bg-primary">
     <div class="container">
         <h1 class="text-center">Pokedex</h1>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <form class="d-flex">
+                <input id="valor" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              </form>
+              <button class="btn btn-outline-success" onclick="buscar()">Search</button>
 
-        <section id="pokemons-container">
+            </div>
+          </nav>
+
+        <section id="pokemons-container" class="d-flex flex-wrap">
             
-           
-
         </section>
 
     </div>
