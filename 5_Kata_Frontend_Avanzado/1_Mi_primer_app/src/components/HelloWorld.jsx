@@ -7,6 +7,7 @@
 
 // Siempre debemos importar React y destructurar Component para poder utilizar la clase como un componente
 import React, {Component} from 'react'
+import ExampleProps from './ExamplePropsClass'
 class HelloWorld  extends Component {
     // Como mi componente helloworld hereda de COMPONENT, debo utilizar SUPER para poder pasar propiedades (props) entre componentes y entregarselos al constructor
     constructor(props) {
@@ -39,7 +40,9 @@ class HelloWorld  extends Component {
 <h1>Componente de tipo Clase</h1>
 
 {/* Accedemos al estado "texto" del objeto state */}
-<h2>{this.state.texto}</h2>
+<h2 style={{color:this.props.colorText}}>{this.state.texto}</h2>
+<h3>Hola, {this.props.name}</h3>
+<ExampleProps nombre={this.props.name}/>
 </div>
          );
     }

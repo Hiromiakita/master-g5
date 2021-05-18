@@ -1,10 +1,12 @@
 // importar files: estilos, imágenes, otros componentes, librerías.
-import React from 'react';
+import React, {useState} from 'react';
 import img1 from './assets/imgs/sky.jpeg';
 import HelloWorld from './components/HelloWorld'
 import OtherHelloWorld from './components/OtherHelloWorld'
 
 function App() {
+
+  const [state, setstate] = useState('Valor del estado App')
 
   // Variables usadas para el return 
   // let titulo = 'Hola, soy el título';
@@ -24,10 +26,10 @@ function App() {
 
   return (
 // Retornamos los componentes importados en un fragmento padre
-<React.Fragment>
-<HelloWorld/>
-<OtherHelloWorld/>
-</React.Fragment>
+<>
+<HelloWorld name={'Manuel'} colorText={'red'}/>
+<OtherHelloWorld lastName={'Tejada'} numero={10} booleano={true} objeto={{nombre:'Manuel'}} saludo={()=>alert('Hola')} state={state}/>
+</>
 
     //Sólo podemos retornar UNA etiqueta
     // <div className="contenedor" id="cont1">
