@@ -1,45 +1,46 @@
 // imports
 
-import Personaje from './Personaje.js';
+// import Personaje from './Personaje.js';
+import Characters from './Characters'
 
 const Contenedor = () => {
 
-    let info = [
-        {   nombre: 'p1',
-            subtitulo: 'sub1',
-            descripcion: 'descrp1'
-        },
-        {   nombre: 'p2',
-            subtitulo: 'sub2',
-            descripcion: 'descrp2'
-        },
-        {   nombre: 'p3',
-            subtitulo: 'sub3',
-            descripcion: 'descrp3'
-        },
-        {   nombre: 'p4',
-            subtitulo: 'sub4',
-            descripcion: 'descrp4'
-        },
-        {   nombre: 'p5',
-            subtitulo: 'sub5',
-            descripcion: 'descrp5'
-        },
-        {   nombre: 'p6',
-            subtitulo: 'sub6',
-            descripcion: 'descrp6'
-        },
-        {   nombre: 'p7',
-            subtitulo: 'sub7',
-            descripcion: 'descrp7'
-        },
-        {   nombre: 'p8',
-            subtitulo: 'sub8',
-            descripcion: 'descrp8'
-        },
-    ];
+    // let info = [
+    //     {   nombre: 'p1',
+    //         subtitulo: 'sub1',
+    //         descripcion: 'descrp1'
+    //     },
+    //     {   nombre: 'p2',
+    //         subtitulo: 'sub2',
+    //         descripcion: 'descrp2'
+    //     },
+    //     {   nombre: 'p3',
+    //         subtitulo: 'sub3',
+    //         descripcion: 'descrp3'
+    //     },
+    //     {   nombre: 'p4',
+    //         subtitulo: 'sub4',
+    //         descripcion: 'descrp4'
+    //     },
+    //     {   nombre: 'p5',
+    //         subtitulo: 'sub5',
+    //         descripcion: 'descrp5'
+    //     },
+    //     {   nombre: 'p6',
+    //         subtitulo: 'sub6',
+    //         descripcion: 'descrp6'
+    //     },
+    //     {   nombre: 'p7',
+    //         subtitulo: 'sub7',
+    //         descripcion: 'descrp7'
+    //     },
+    //     {   nombre: 'p8',
+    //         subtitulo: 'sub8',
+    //         descripcion: 'descrp8'
+    //     },
+    // ];
 
-    console.log(info);
+    // console.log(info);
 
     // Variables para enviar como props
     // let t3 = "titulo guardado en una variable";
@@ -57,7 +58,7 @@ const Contenedor = () => {
 
     return (
         <div>
-            <p>Listado de pokemones</p>
+            <p>Listado de personajes</p>
 
             <section className="d-flex flex-wrap">
 
@@ -85,20 +86,21 @@ const Contenedor = () => {
 
                 {/* Crear componentes hijos con props a partir de un arreglo con info */}
 
-                {
+                {/* {
                     info.map((elemento, index) => {
                         return (
                             <Personaje 
-                                titulo={elemento.nombre}
-                                subtitulo={elemento.subtitulo}
-                                descripcion={elemento.descripcion}
-                                numero={100}
+                                age={25}
+                                title={elemento.nombre}
+                                subtitle={elemento.subtitulo}
+                                description={elemento.descripcion}
+                                number={100}
                                 key={index}/>
                         )
                     })
-                }
+                } */}
 
-
+                <Characters/>
 
             </section>
 
