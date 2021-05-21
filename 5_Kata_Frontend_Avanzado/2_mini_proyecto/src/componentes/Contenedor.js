@@ -2,6 +2,7 @@
 
 // import Personaje from './Personaje.js';
 import Characters from './Characters'
+import Input from './Input'
 
 const Contenedor = () => {
 
@@ -100,8 +101,8 @@ const Contenedor = () => {
                     })
                 } */}
 
-                <Characters/>
-
+                {/* <Characters/> */}
+                <Input/>
             </section>
 
         </div>
