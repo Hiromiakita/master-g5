@@ -2,7 +2,7 @@
 
 // import Personaje from './Personaje.js';
 import Characters from './Characters'
-import Input from './Input'
+// import Input from './Input'
 
 const Contenedor = () => {
 
@@ -101,8 +101,8 @@ const Contenedor = () => {
                     })
                 } */}
 
-                {/* <Characters/> */}
-                <Input/>
+                <Characters/>
+                {/* <Input/> */}
             </section>
 
         </div>
