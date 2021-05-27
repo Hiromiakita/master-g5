@@ -2,6 +2,8 @@ import Navbar from "./componentes/Navbar";
 import Contacto from "./sections/Contacto";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from "./sections/Home";
+import Footer from "./componentes/Footer";
+import Galeria from "./sections/Galeria";
 
 function App() {
   return (
@@ -19,8 +21,13 @@ function App() {
         {/* Definir un componente por ruta */}
         <Route exact path="/home" component={Home}/>
 
+        {/* Definir un componente por ruta */}
+        <Route exact path="/galeria" component={Galeria}/>
+
       </Switch>
 
+
+    <Footer/>
     </BrowserRouter>
     
   );
