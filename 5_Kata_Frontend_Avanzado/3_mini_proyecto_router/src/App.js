@@ -1,6 +1,6 @@
 import Navbar from "./componentes/Navbar";
 import Contacto from "./sections/Contacto";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from "./sections/Home";
 import Footer from "./componentes/Footer";
 import Galeria from "./sections/Galeria";
@@ -8,7 +8,7 @@ import Galeria from "./sections/Galeria";
 function App() {
   return (
     // BrowserRouter nos ayuda a establecer un componente como la raíz de diferentes rutas
-    <BrowserRouter>
+    <Router>
     {/* Componentes fijos */}
       <Navbar/>
       <h1>APP Gifs</h1>
@@ -28,7 +28,7 @@ function App() {
 
 
     <Footer/>
-    </BrowserRouter>
+    </Router>
     
   );
 }
