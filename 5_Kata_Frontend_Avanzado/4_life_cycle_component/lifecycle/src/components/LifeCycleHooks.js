@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 
-const LifeCycleHooks = () => {
+const LifeCycleHooks = ({name = 'ditto'}) => {
+
 
 // 1: EJEMPLO
 
@@ -32,37 +33,70 @@ const LifeCycleHooks = () => {
 
 // 3:EJEMPLO
 
-const [width, setWidth] = useState(0)
+// const [width, setWidth] = useState(0)
 
+// useEffect(() => {
+
+//     // Lo podemos tomar como un componentDidmount, un componentDidUpdate y un componentWillUnmount
+
+//     const updateWidth =()=>{
+//         const dinamicWidth = document.body.clientWidth
+//         console.log(`UpdateWidth con ${width}`)
+//         setWidth(dinamicWidth)
+//     }
+//     // Actualizamos el width del la ventana cuando el componente se monte
+//     updateWidth()
+
+//     // Nos suscribimos al evento resize window
+//     window.addEventListener('resize', updateWidth)
+
+//     // Limpiamos o saneamos el UseEffect, des-suscribiendonos del evento resize
+//     return()=>{
+//         window.removeEventListener('resize', updateWidth)
+//     }
+
+// })
+
+// return(
+//     <div>
+//         <span>{width}</span>
+//     </div>
+// )
+
+
+// 4:EJEMPLO
+
+// const [pokemonInfo, setPokemonInfo] = useState(null)
+// const [error, setError] = useState(null)
+
+// useEffect(() => {
+//   fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+//   .then(res=>setPokemonInfo(res.json()))
+//   console.log(pokemonInfo)
+//   }, [name])
+
+const [user, setUser] = useState('Juan')
 useEffect(() => {
+   console.log(user)
+}, [user])
 
-    // Lo podemos tomar como un componentDidmount, un componentDidUpdate y un componentWillUnmount
+const HandleName =(event)=>{
+setUser(event.target.value)
+}
 
-    const updateWidth =()=>{
-        const dinamicWidth = document.body.clientWidth
-        console.log(`UpdateWidth con ${width}`)
-        setWidth(dinamicWidth)
-    }
-    // Actualizamos el width del la ventana cuando el componente se monte
-    updateWidth()
 
-    // Nos suscribimos al evento resize window
-    window.addEventListener('resize', updateWidth)
+return (
+    // <span>
+    //     {/* {`El id del pokemon es ${pokemonInfo.id} y el nombre es ${pokemonInfo.name}`} */}
+        
+    // </span>
 
-    // Limpiamos o saneamos el UseEffect, des-suscribiendonos del evento resize
-    return()=>{
-        window.removeEventListener('resize', updateWidth)
-    }
+    <form>
+        <h1>Hello {user}</h1>
+        <input type="text" onChange={HandleName}></input>
+    </form>
 
-})
-
-return(
-    <div>
-        <span>{width}</span>
-    </div>
 )
-
-
 
 }
 

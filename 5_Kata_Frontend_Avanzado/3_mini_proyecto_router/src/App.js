@@ -19,10 +19,14 @@ function App() {
         <Route exact path= "/contacto" component={Contacto}/>
 
         {/* Definir un componente por ruta */}
-        <Route exact path="/home" component={Home}/>
+        
 
         {/* Definir un componente por ruta */}
         <Route exact path="/galeria" component={Galeria}/>
+
+        <Route exact path='/Pagos' component={Pagos}/>
+
+        <Route exact path="*" component={NotFound}/>
 
       </Switch>
 

@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Hiromiakita/master-g5#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "react-router-dom": "5.2.0",
     "request": "2.88.2"
   }
 }
