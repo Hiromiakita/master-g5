@@ -21,6 +21,9 @@ const NavBar = () => {
                 <li>
                     <NavLink activeClassName='active' to='/profile'>Profile</NavLink>
                 </li>
+                <li>
+                    <NavLink activeClassName='active' to='/dashboard'>Dashboard</NavLink>
+                </li>
             </ul>
         </nav>
     )

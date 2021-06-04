@@ -7,6 +7,8 @@ import Login from '../pages/Login'
 import NotFound from '../pages/NotFound'
 import NavBar from '../components/NavBar'
 import Profile from '../pages/Profile'
+import Dashboard from '../pages/Dashboard'
+import PrivateRoute from '../components/PrivateRoute'
 
 import React from 'react'
 
@@ -23,6 +25,7 @@ const RoutesApp = () => {
                <Route exact path="/contact" component={Contact} />
                <Route exact path="/login" component={Login} />
                <Route exact path="/profile/:name" component={Profile} />
+               <PrivateRoute exact path="/dashboard" component={Dashboard} />
                <Route exact path="/" component={Home} />
                <Route exact path="*" component={NotFound} />
            </Switch>
