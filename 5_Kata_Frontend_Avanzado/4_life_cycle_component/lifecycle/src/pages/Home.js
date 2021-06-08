@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import List from "../pages/List";
 
 const Home = () => {
     return (
         <div>
-           <h1>Homes</h1> 
+            <List />
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
