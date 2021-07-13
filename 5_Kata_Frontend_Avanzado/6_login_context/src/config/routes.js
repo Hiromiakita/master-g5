@@ -6,6 +6,7 @@ import NotFound from "../pages/NotFound";
 
 const routes = [
     {
+        exact: true,
         path: "/dashboard",
         component: Dashboard,
         isPrivate: true, //PROPIEDAD QUE SIRVE PARA ESTABLECER A UNA RUTA PRIVADA
