@@ -66,7 +66,7 @@ const Home = () => {
                                 imagen = {prod.image}
                                 key={index}
                             />
-                        )) : productosFiltrados.length === 0 && setSearchOn ? 
+                        )) : productosFiltrados.length === 0 && searchOn ? 
                         (<p>No hay resultados</p>) :
                         (<p>Cargando...</p>)
                 }
