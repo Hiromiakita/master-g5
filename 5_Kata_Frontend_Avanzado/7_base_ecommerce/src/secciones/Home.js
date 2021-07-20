@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import ProductoCard from '../componentes/ProductoCard';
 import Search from '../componentes/Search';
 
-import './Home.css';
+import './Home.scss';
 
 const Home = () => {
 
@@ -52,7 +52,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className="contenedor-home">
             <h1>HOME</h1>
             <Search filtrarProductos={filtrarProductos}/>
             <h2>Productos</h2>

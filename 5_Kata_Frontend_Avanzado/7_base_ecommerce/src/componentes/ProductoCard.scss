@@ -1,0 +1,23 @@
+@import '../sass/variables.scss';
+
+.card-producto {
+    background-color: $color-secundario;
+    padding: $padding-card;
+    margin-right: $margin-card;
+    margin-bottom: $margin-card;
+
+
+    .prod-image {
+        width: 8rem;
+        height: auto;
+    }
+
+    .nombre-producto {
+        font-size: $nombre-producto;
+        color: $color-principal;
+    }
+
+    .precio-producto {
+        font-size: $precio-producto;
+    }
+}
