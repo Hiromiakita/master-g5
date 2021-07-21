@@ -3,6 +3,10 @@ import './ProductoCard.scss';
 
 const ProductoCard = (props) => {
 
+    let test = () => {
+        console.log('test');
+    }
+
     const {nombreProducto, precio, imagen} = props;
     return (
         <div className="card-producto">
