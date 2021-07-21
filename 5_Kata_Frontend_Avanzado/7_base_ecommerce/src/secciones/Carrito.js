@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './Carrito.scss';
 
 const Carrito = () => {
     return (
-        <div>
+        <div className="carrito">
             <p>Carrito</p>
         </div>
     )

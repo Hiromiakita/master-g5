@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './Search.scss';
 
 const Search = (props) => {
     
@@ -7,7 +8,7 @@ const Search = (props) => {
     return (
         <div>
             <input onChange={(e) => {filtrarProductos(e.target.value)}} placeholder="Buscar productos"/>
-            <button>Buscar</button>
+            <button className="boton-buscar">Buscar</button>
         </div>
     )
 }

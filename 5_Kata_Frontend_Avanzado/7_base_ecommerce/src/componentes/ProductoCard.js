@@ -9,7 +9,7 @@ const ProductoCard = (props) => {
             <img className="prod-image" src={imagen} alt="imagen producto"/>
             <p className="nombre-producto">{nombreProducto}</p>
             <p className="precio-producto">${precio}</p>
-            <a href="a">Ver detalles</a>
+            <a className="detalles-boton" href="a">Ver detalles</a>
         </div>
     )
 }
