@@ -17,6 +17,7 @@ function App() {
         <Route exact path="/carrito" component={Carrito}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route exact path="/test" component={Login}></Route>
+        <Route exact path="/test-hiromi" component={Login}></Route>
         <Route exact path="/*" component={Home}></Route>
       </Switch>
     </BrowserRouter>
