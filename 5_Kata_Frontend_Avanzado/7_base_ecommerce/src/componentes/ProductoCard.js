@@ -7,6 +7,10 @@ const ProductoCard = (props) => {
         console.log('test');
     }
 
+    let hola = () => {
+        return 'hola';
+    }
+
     const {nombreProducto, precio, imagen} = props;
     return (
         <div className="card-producto">
@@ -14,6 +18,7 @@ const ProductoCard = (props) => {
             <p className="nombre-producto">{nombreProducto}</p>
             <p className="precio-producto">${precio}</p>
             <a href="a">Ver detalles</a>
+            <button onClick={() => {hola()} }></button>
         </div>
     )
 }
