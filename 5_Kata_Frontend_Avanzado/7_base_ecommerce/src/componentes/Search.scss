@@ -1,0 +1,14 @@
+@import '../sass/mixins';
+@import '../sass/funciones';
+
+
+.boton-buscar {
+    @include boton-dinamico(rgb(190, 122, 32), white, 2px);
+    width: 6rem;
+
+    &:hover{
+        // @include boton-dinamico(blue, white, 2px);
+        width: crecerBoton(6rem);
+        background-color: darken($color: rgb(190, 122, 32), $amount: 20);
+    }
+}

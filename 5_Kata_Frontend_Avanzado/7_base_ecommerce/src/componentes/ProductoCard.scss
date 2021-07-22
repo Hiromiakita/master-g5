@@ -1,0 +1,31 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+@import '../sass/funciones';
+
+.card-producto {
+    @include colores-base2;
+    padding: $padding-card;
+    margin-right: $margin-card;
+    margin-bottom: $margin-card;
+    width: 13rem;
+    height: calcularAltura(13rem);
+
+    .prod-image {
+        width: 8rem;
+        height: auto;
+    }
+
+    .nombre-producto {
+        font-size: $nombre-producto;
+        // color: $color-principal;
+    }
+
+    .precio-producto {
+        font-size: $precio-producto;
+    }
+
+    .detalles-boton {
+        @include boton-basico1;
+        text-decoration: none;
+    }
+}
