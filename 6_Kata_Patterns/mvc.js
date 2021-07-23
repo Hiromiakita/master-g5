@@ -1,4 +1,5 @@
 // ======================== MODELO =========================
+// PASO 1 : CREAMOS EL MODELO (EN ESTE CASO AL NO USAR UNA BASE DE DATOS REAL LO VEREMOS TAMBIEN COMO UNA BASE DE DATOS )
 const contacts = [
     {
         fname: "Rafael",
@@ -33,15 +34,17 @@ const contacts = [
 ];
 
 // ================ VISTA ===================
+// PASO 2: CREAR LA CLASE DE LA VISTA Y EL METODO PARA MOSTRAR LA INFORMACION EN PANTALLA
 class ContactsView {
     // Metodo que sirve para mostrar la informacion en la vista
     init() {
-        // console.log("Enlace de controlador y vista exitoso");
+        console.log("Enlace de controlador y vista exitoso");
+
+        //  PASO 9: Invocamos al metodo creado en el paso 8 para ver la informacion en la vista (terminamos el modelo MVC)
         this.contactsListController();
     }
 
-    // Metodo para obtener los datos que vienen atraves del controlador desde el modelo
-
+    // PASO 8: creamos el metodo para obtener los datos que vienen atraves del controlador desde el modelo y donde se ejecuta la logica para crear los elementos html que se muestran en la vista
     contactsListController() {
         //Obtener los contactos y los guardamos en una constante
         const data = BookApp.getContacts();
@@ -63,29 +66,28 @@ class ContactsView {
     }
 }
 
-// Creamos una instancia de la clase vista
+//PASO 3: Creamos una instancia de la clase vista para usarla en la relacion vista-controlador
 const VistaContactos = new ContactsView();
 
 // ===============CONTROLADOR==================
 
-// Segun la regla el modelo y la vista no pueden comunicarse directamente, deben hacerlo mediante el controlador
+// PASO 4: Segun la regla el modelo y la vista no pueden comunicarse directamente, deben hacerlo mediante el controlador, creamos el controlador (Hacemos la relacion vista-controlador)
 class BookViewController {
+    // Creamos la logica del contructor que servira para inicializar en el controlador la instancia de la vista (la cual recibimos como parametro), pero aun no se recibe directamente
     constructor(Vista) {
-        this.Vista = Vista;
+        this.Vista = Vista; // Invocamos a la instancia vista para acceder a sus propiedades
     }
-
     init() {
-        this.Vista.init();
+        this.Vista.init(); //ejecutamos el metodo de la instacia de la vista
     }
-
-    //Obtenemos la informcion del modelo
+    // PASO 7: Obtenemos la informcion del modelo (a partir de aca hacemos la relacion modelo-controlador)
     getContacts() {
         return contacts;
     }
 }
 
-// Creamos una instancia del controlador y le pasamos como argumento la instancia de la vista (porque asi me lo pide su constructor)
+// PASO 5: Creamos una instancia del controlador y le pasamos como argumento la instancia de la vista (porque asi me lo pide su constructor), aqui si ya la recibimos directamente
 const BookApp = new BookViewController(VistaContactos);
 
-//Invoco a la instacia del controlador y ejecuto su metodo init
+// PASO 6: Invoco a la instacia del controlador y ejecuto su metodo init, por el momento solo veiamos un console.log (Hasta aca teniamos la relacion vista-controlador)
 BookApp.init();
