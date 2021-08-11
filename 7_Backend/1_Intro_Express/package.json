@@ -1,0 +1,21 @@
+{
+  "name": "1_intro_express",
+  "version": "1.0.0",
+  "description": "Mini proyecto introductorio a express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "npm",
+    "node",
+    "api",
+    "crud"
+  ],
+  "author": "Hiromi Akita",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
