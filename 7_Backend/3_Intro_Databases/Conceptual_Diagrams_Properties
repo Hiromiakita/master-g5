@@ -17,5 +17,5 @@ LLAVES (VALORES UNICOS DE UNA ENTIDAD)
 
 Llaves primarias: identifican de forma unica a cada registro de una tabla o entidad fuerte. Se representa subrayando el nombre de la llave primaria.
 
-Llaves foraneas: identifican de forma unica  a cada registro de una entidad que esta relacionada con otra entidad y cuya relacion es de muchos a muchos. Se representa subrayando el nombre de la llave foranea, pero punteada.
+Llaves foraneas: identifican de forma unica  a cada registro de una entidad que esta relacionada con otra entidad. Se representa subrayando el nombre de la llave foranea, pero punteada.
 
