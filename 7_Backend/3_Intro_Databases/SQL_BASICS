@@ -1,0 +1,37 @@
+DML(Data Manipulation Language): Nos sirven para modificar datos de las tablas de una base de datos.
+DDL(Data DEFINITION Language): Nos sirven para definir tablas y modificarlas en una base de datos.
+
+
+DDL: CREATE (crear), ALTER (actualizar), DROP (eliminar)...POR EJEMPLO:
+
+(Correr cada instruccion por separado) 
+ **************************CODIGO SQL************************
+
+CREATE TABLE Test(
+Id integer,
+FirstName varchar(25),
+LastName varchar(25),
+age integer
+)
+
+DROP TABLE Test
+
+ALTER TABLE Test ADD date date
+
+***************************CODIGO SQL***************************
+
+
+DML: INSERT (insertar), UPDATE (actualizar), DELETE (Eliminar), SELECT (seleccionar)
+
+**************************CODIGO SQL************************
+
+INSERT INTO Test (id,firstname,lastname,age) VALUES (1,'Rafael','Rodriguez',10) // Agregar unos 7 registros
+UPDATE Test SET firstname = 'Pablo' WHERE id = 1 //Actualizara solo ese registro en el campo firstname
+UPDATE Test SET lastname = 'Jimenez' //Actualizara todos los registros en el campo lastname
+DELETE FROM Test WHERE id = 1 //Borrara solamente ese registro
+DELETE FROM Test //Borrara todos los registros de la tabla
+SELECT * FROM Test //Mostrara todos los registros de la tabla
+SELECT * FROM Test WHERE id = 2 //Mostrara solo ese registro
+SELECT * FROM Test WHERE id > 2 //Mostrara todos los registros cuyo id sea mayor a 2
+
+***************************CODIGO SQL***************************
