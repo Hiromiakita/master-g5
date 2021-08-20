@@ -35,3 +35,50 @@ SELECT * FROM Test WHERE id = 2 //Mostrara solo ese registro
 SELECT * FROM Test WHERE id > 2 //Mostrara todos los registros cuyo id sea mayor a 2
 
 ***************************CODIGO SQL***************************
+
+
+
+*************COMANDOS DE CONSULTAS SQL************************
+
+\dt : Muestra las tablas de la base de datos
+
+\d "nombre_de_tabla": Muestra los detalles de una tabla de la base de datos
+
+select * from "nombre_de_tabla" : sirve para mostrar todos los registros de una tabla
+
+select "nombre_de_columna" from "nombre_de_tabla": sirve para mostrar solo la columna o columnas que queramos (si queremos mostrar varias columnas, las separamos por comas)
+
+select count(*) from "nombre_de_tabla": sirve para saber cuantos registros existen en la tabla
+
+LIMIT (EJEMPLO): select first_name from actor limit 10 // Sirve para delimitar el numero de registros de un select
+
+OFFSET (EJEMPLO): select first_name, last_update from actor offset 10 // Sirve para omitir registros de un select (En este caso omite los primeros 10)
+
+WHERE: Sirve para agregar una o mas condiciones especificas en un select, podemos usar los operadores >, <, >=, <=, !=, =, AND, OR (EJEMPLO): 
+select * from payment where staff_id !=1; 
+SELECT * FROM customer WHERE first_name='Barbara' OR first_name='Rebecca'
+SELECT * FROM customer WHERE store_id=2;
+SELECT * FROM customer WHERE store_id=2 AND customer_id=4;
+
+
+BETWEEN: Sirve para mostrar los registros que estan entre un valor y otro valor. Se puede usar en conjunto con otras instrucciones sql. EJEMPLO:
+
+select mount from payment where amount between 5 and 10;
+
+IN: Sirve para mostrar registros especificos dependiendo una condicion con un where. EJEMPLO:
+select * from payment where customer_id in(341,347);
+
+IS NULL : Sirve para mostrar los registros que en algun campo esten como NULL. No es lo mismo NULL que ' ' (cadena vacia).
+
+ORDER BY: Sirve para ordenar registros segun el campo que se le indique. EJEMPLO: 
+select * from rental order by customer_id;
+select * from rental order by customer_id desc offset 5 limit 5;
+
+DISTINCT: Sirve para omitir registros que esten repetidos. Al campo o campos que esten despues del distinct se aplicara la instruccion de no repetir registros. Ejemplo: 
+select distinct customer_id from payment;
+
+
+
+GROUP BY: Sirve para agrupar registros por columnas. En este caso agrupamos por customer_id y nos hace un conteo de cuantos registros hay por cada customer_id. Ejemplo :
+
+select customer_id, count(*) from rental group by customer_id
