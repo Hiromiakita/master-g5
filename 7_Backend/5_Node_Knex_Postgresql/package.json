@@ -1,0 +1,20 @@
+{
+    "name": "5_node_knex_postgresql",
+    "version": "1.0.0",
+    "description": "Uso de Knex con Node, Express y PostgreSQL",
+    "main": "index.js",
+    "scripts": {
+        "migrate": "npx knex migrate:latest --knexfile db/knexfile.js",
+        "dev": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "4.17.1",
+        "knex": "0.95.10",
+        "nodemon": "2.0.12",
+        "pg": "8.7.1"
+    }
+}
