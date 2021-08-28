@@ -21,3 +21,4 @@
  18.Dentro de la carpeta controller crear un archivo person.js (ver el archivo)
  19.Dentro de la carpeta dao crearun archivo person.js (ver el archivo)
  20.Correr el servidor con npm run: dev
+ 21. Ingresar un registro usando curl ( curl --data "firstName=Juanito&email=juanito@example.com" http://localhost:3000/person), en caso de ser exitoso deberia devolver el id con el que se crea.
