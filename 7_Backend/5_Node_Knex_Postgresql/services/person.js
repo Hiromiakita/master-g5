@@ -9,6 +9,15 @@ class PersonService {
         // Pasamos estos datos a la capa de acceso a datos
         return PersonDAO.createPerson(firstName, email);
     }
+
+    findPersons() {
+        return PersonDAO.findPersons();
+    }
+
+    updatePerson(personDta, id) {
+        const { firstName, email } = personDta;
+        return PersonDAO.updatePerson(firstName, email, id);
+    }
 }
 
 // Exportamos la clase para utilzarla en otros archivos

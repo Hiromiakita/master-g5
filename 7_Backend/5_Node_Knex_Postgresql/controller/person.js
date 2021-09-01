@@ -14,6 +14,31 @@ class PersonController {
             response.status(500).json(error);
         }
     }
+    async findPersons(request, response) {
+        try {
+            const items = await personService.findPersons();
+            response.status(200).json(items);
+        } catch (error) {
+            response.status(500).json(error);
+        }
+    }
+
+    async updatePerson(request, response) {
+        try {
+            const updateBody = await personService.updatePerson(
+                request.body,
+                request.params.id
+            );
+            response
+                .status(200)
+                .send(
+                    `El usuario con id ${request.params.id} se ha actualizado correctamente`
+                )
+                .json(updateBody);
+        } catch (error) {
+            response.status(500).json(error);
+        }
+    }
 }
 
 // Exportamos la clase para utilzarla en otros archivos

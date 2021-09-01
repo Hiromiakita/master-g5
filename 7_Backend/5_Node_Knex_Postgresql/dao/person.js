@@ -14,6 +14,19 @@ class PersonDAO {
             .returning("id");
         return id;
     }
+
+    async findPersons() {
+        const items = await db.select("*").from("person");
+        return items;
+    }
+
+    async updatePerson(firstName, email, id) {
+        const item = await db
+            .update({ email, first_name: firstName })
+            .from("person")
+            .where("id", id);
+        return item;
+    }
 }
 // Exportamos la clase para utilzarla en otros archivos
 module.exports = new PersonDAO();
