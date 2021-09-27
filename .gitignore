@@ -3,3 +3,5 @@
 .gitignore
 
 node_modules
+
+Ejercicios/Kata_Backend/.env
