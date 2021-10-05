@@ -17,6 +17,18 @@ class EndpointsController {
             response.status(500).json(error);
         }
     }
+
+    async createCustomer(request, response) {
+        try {
+            const id = await EndpointsService.createCustomer(request.body);
+            response
+                .status(201)
+                .json({ message: `Usuario creado con id ${id}` });
+        } catch (error) {
+            console.error(error);
+            response.status(500).json(error);
+        }
+    }
 }
 
 module.exports = new EndpointsController();

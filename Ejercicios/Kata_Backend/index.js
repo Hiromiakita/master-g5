@@ -1,6 +1,8 @@
+const { errors } = require("celebrate");
 const express = require("express");
 const cors = require("cors");
 const validationSchema = require("./middlewares/validators");
+const endpointsController = require("./controller/endpoints");
 const app = express();
 
 const homeRouter = require("./routes/index");
@@ -18,12 +20,12 @@ app.use(
 );
 
 app.use("/", homeRouter);
-app.use("/queries", [validationSchema.verifyToken], endpointsRouter);
-app.post("/login", [
-    validationSchema.loginParameters,
-    validationSchema.createToken,
-]);
+app.use(validationSchema.createToken);
+app.use("/queries", endpointsRouter);
+app.post("/signup", endpointsController.createCustomer);
 
 app.listen(PORT, () => {
     console.log(`Aplicacion corriendo en el puerto ${PORT}`);
 });
+
+app.use(errors());

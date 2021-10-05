@@ -29,6 +29,18 @@ class EndpointsDAO {
 
         return items;
     }
+
+    async createCustomer(first_name, last_name, email, password) {
+        const [id] = await db("customer")
+            .insert({
+                first_name,
+                last_name,
+                email,
+                password,
+            })
+            .returning("customer_id");
+        return id;
+    }
 }
 // Exportamos la clase para utilzarla en otros archivos
 module.exports = new EndpointsDAO();
