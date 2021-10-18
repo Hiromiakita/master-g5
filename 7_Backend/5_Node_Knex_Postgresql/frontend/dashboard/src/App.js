@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
+import axiosInstance from "./config";
 import "./App.css";
 import DataTable from "./components/table/DataTable";
 import ModalForm from "./components/modal/Modal";
@@ -7,11 +8,13 @@ import ModalForm from "./components/modal/Modal";
 function App() {
     const [items, setItems] = useState([]);
 
-    const getItems = () => {
-        fetch("http://localhost:3000/persons")
-            .then((response) => response.json())
-            .then((items) => setItems(items))
-            .catch((err) => console.log(err));
+    const getItems = async () => {
+        try {
+            const res = await axiosInstance.get("/persons");
+            setItems(res.data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     useEffect(() => {

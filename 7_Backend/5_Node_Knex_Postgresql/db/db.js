@@ -5,7 +5,7 @@ const knex = require("knex");
 const knexfile = require("./knexfile");
 
 // Le enviamos el archivo de configuracion de conexion a la base de datos a knex y aqui ya vienen tambien desde la capa de acceso a datos los datos que queremos insertar
-const db = knex(knexfile.development);
+const db = knex(knexfile.production);
 
 // Exportamos la constante para utilzarla en otros archivos
 module.exports = db;
