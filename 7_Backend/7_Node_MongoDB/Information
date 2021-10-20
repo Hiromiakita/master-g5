@@ -1,0 +1,88 @@
+BASES DE DATOS NOSQL:
+
+\*Optimizadas para aplicaciones que manejan una gran cantidad de datos y necesitan un rapido tiempo de respuesta.
+
+*Flexibilidad: Permiten un desarrollo mas rapido.
+*Escalabilidad: usan clusteres distribuidos de hardware en lugar de añadir servidores físicos.
+
+\*Alto rendimiento: por el modelo de datos que utilizan permiten un mayor rendimiento que las bases de datos relacionales.
+
+\*Funcionales: proporcionan APIS que estan diseñadas para cada uno de los modelos de datos.
+
+TIPOS DE BASES DE DATOS NOSQL:
+
+\*clave-valor: se utilizan en videojuegos, por ejemplo amazon DynamoDB.
+
+\*Documentos: funcionan bien con catálogos, perfiles de usuario y sistemas de administación de contenido en los que cada documento es único y cambia con el tiempo. Por ejemplo MongoDB.
+
+\*Grafos: Facilitan el uso de aplicaciones con datos que estan altamente conectados, por ejemplo las redes sociales o los motores de recomendaciones. Por ejemplo Amazon Neptune
+
+\*Wide columns(En memoria): se utilizan en videojuegos y analisis de datos en tiempo real, que requieren manejar una gran cantidad de informacion y el tiempo de respuesta debe ser de microsegundos. Amazon redis o Amazon memoryDB.
+
+\***\*\*\*\*\***\*\***\*\*\*\*\***TRABAJAR CON BASES DE DATOS MONGO\***\*\*\*\*\*\*\***\*\*\***\*\*\*\*\*\*\***
+Necesitamos crear lo siguiente:
+
+\*Esquema: Definen la forma en como pedimos los datos para crear un documento dentro de una coleccion. Necesitan llevar siempre un id, pero este id mongo lo crea automaticamente. Ejemplo:
+
+const testSchema = new Schema({
+title: String,
+author: String,
+author2: { type: String, likes: Number },
+body: String,
+comments: [{ body: String, date: Date }],
+category: { type:String, enum:["drama", "romantic", "action"]} ,
+date: { type: Date, default: Date.now },
+hidden: Boolean,
+});
+
+-   Validacion de esquema: Valida los campos de el esquema como un middleware, arrajando errores si no le mando alguna propiedad que mi esquema requiere. Por ejemplo:
+
+const testSchema = new Schema({
+huevos: {
+type: Number,
+min: [6, "No son suficientes huevos, mandaste {VALUE}"],
+max: [12, "Son muchos huevos, mandaste {VALUE}"],
+},
+tocino: { type: Number, required: [true, "Debes colocar tocino"] },
+
+            bebida: {
+                type: String,
+                enum: {
+                    values: ["Cafe", "Malteada"],
+                    message: "{VALUE} no esta permitido",
+                },
+                required: [
+                    function () {
+                        return this.tocino > 3;
+                    },
+                    "La bebida es requerida porque pediste mas de 3 tocinos",
+                ],
+            },
+        });
+
+
+
+\*Modelos: Son los responsables de crear y leer los documentos de la base de datos. Trabajan en base a un esquema y a la instancia de un modelo se conoce como documento.
+
+//Creacion del modelo
+
+const testModel = mongoose.model("Desayuno", testSchema);
+
+//Creacion de instancia del modelo con los datos que queremos guardar en la coleccion
+
+const lunch = new testModel({
+huevos: 8,
+tocino: 4,
+bebida: "Malteada",
+});
+
+//Guardar la instancia del modelo (documento) en la base de datos
+
+            lunch
+            .save()
+            .then(() => {
+                console.log("El registro se ha guardado con exito");
+            })
+            .catch((err) => {
+                console.log("El registro no se guardo con exito", err);
+            });
