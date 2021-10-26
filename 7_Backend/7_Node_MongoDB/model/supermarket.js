@@ -7,7 +7,7 @@ articleSchema = new Schema({
     existencias: { type: Number, required: true },
 });
 
-ticketschema = new Schema({
+ticketSchema = new Schema({
     subtotal: { type: Number, default: 0 },
     total: { type: Number, default: 0 },
     IVA: { type: Number, default: 0 },
@@ -21,5 +21,5 @@ ticketschema = new Schema({
 
 module.exports = {
     articleModel: mongoose.model("Articulo", articleSchema),
-    ticketModel: mongoose.model("Ticket", ticketschema),
+    ticketModel: mongoose.model("Ticket", ticketSchema),
 };

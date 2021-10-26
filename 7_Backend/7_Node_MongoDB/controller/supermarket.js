@@ -1,5 +1,6 @@
 const marketModels = require("../model/supermarket");
 const articleModel = marketModels.articleModel;
+const ticketModel = marketModels.ticketModel;
 
 class MarketControllers {
     createArticle = (req, res) => {
@@ -25,6 +26,61 @@ class MarketControllers {
                 });
             });
     };
+
+    createTicket = (req, res) => {
+        articleModel
+            .findById(req.body.articleId)
+            .exec()
+            .then((article) => {
+                if (!article) {
+                    res.status(404).json({
+                        success: false,
+                        message: "No se encontro el articulo en la coleccion",
+                    });
+                }
+                const ticket = new ticketModel({
+                    subtotal: req.body.subtotal,
+                    total: req.body.total,
+                    iva: req.body.iva,
+                    articulos: req.body.articleId,
+                });
+                return ticket.save().then((newArticle) => {
+                    res.status(201).json({
+                        success: true,
+                        message: "Ticket creado",
+                        ticketCreated: newArticle,
+                    });
+                });
+            })
+            .catch((err) => {
+                res.status(500).json({
+                    success: false,
+                    message: "No se pudo crear el ticket",
+                    error: err,
+                });
+            });
+    };
+
+    findAllTickets(req, res) {
+        return ticketModel
+            .find()
+            .populate({ path: "articulos", select: "nombre" })
+            .exec()
+            .then((Tickets) => {
+                res.status(200).json({
+                    success: true,
+                    message: "Tickets encontrados",
+                    ticketsFound: Tickets,
+                });
+            })
+            .catch((err) => {
+                res.status(500).json({
+                    success: false,
+                    message: "No se pudo encontrar tickets en la coleccion",
+                    error: err.message,
+                });
+            });
+    }
 
     findAllArticles(req, res) {
         return articleModel
