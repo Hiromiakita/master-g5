@@ -1,9 +1,14 @@
+//Importamos el archivos de modelos.
 const marketModels = require("../model/supermarket");
+
+// Invocamos a ambos modelos para que se puedan hacer las operaciones CRUD
 const articleModel = marketModels.articleModel;
 const ticketModel = marketModels.ticketModel;
 
+// Hacemos una clase que contiene los distintos metodos CRUD para los esquemas de articulos y tickets
 class MarketControllers {
     createArticle = (req, res) => {
+        // Creamos una nueva instancia del modelo para guardar dentro de el los datos que le mande en la peticion y se intente crear un nuevo documento (registro)
         const article = new articleModel({
             nombre: req.body.nombre,
             precio: req.body.precio,
@@ -28,6 +33,9 @@ class MarketControllers {
     };
 
     createTicket = (req, res) => {
+        // INVESTIGAR COMO PODEMOS AGREGAR MAS DE UN ARTICULO AL TICKET
+
+        // Buscara primero si existen los articulos que se quieren agregar al ticket
         articleModel
             .findById(req.body.articleId)
             .exec()
@@ -37,20 +45,22 @@ class MarketControllers {
                         success: false,
                         message: "No se encontro el articulo en la coleccion",
                     });
-                }
-                const ticket = new ticketModel({
-                    subtotal: req.body.subtotal,
-                    total: req.body.total,
-                    iva: req.body.iva,
-                    articulos: req.body.articleId,
-                });
-                return ticket.save().then((newArticle) => {
-                    res.status(201).json({
-                        success: true,
-                        message: "Ticket creado",
-                        ticketCreated: newArticle,
+                } else {
+                    // Creamos una nueva instancia del modelo para guardar dentro de el los datos que le mande en la peticion y se intente crear un nuevo documento (registro)
+                    const ticket = new ticketModel({
+                        subtotal: req.body.subtotal,
+                        total: req.body.total,
+                        iva: req.body.iva,
+                        articulos: req.body.articleId,
                     });
-                });
+                    return ticket.save().then((newArticle) => {
+                        res.status(201).json({
+                            success: true,
+                            message: "Ticket creado",
+                            ticketCreated: newArticle,
+                        });
+                    });
+                }
             })
             .catch((err) => {
                 res.status(500).json({
@@ -62,24 +72,30 @@ class MarketControllers {
     };
 
     findAllTickets(req, res) {
-        return ticketModel
-            .find()
-            .populate({ path: "articulos", select: "nombre" })
-            .exec()
-            .then((Tickets) => {
-                res.status(200).json({
-                    success: true,
-                    message: "Tickets encontrados",
-                    ticketsFound: Tickets,
-                });
-            })
-            .catch((err) => {
-                res.status(500).json({
-                    success: false,
-                    message: "No se pudo encontrar tickets en la coleccion",
-                    error: err.message,
-                });
-            });
+        return (
+            ticketModel
+                .find()
+                // Con el populate hacemos el enlace con la propiedad donde tenemos la referencia en el esquema y filtramos los campos a mostrar con el select
+                .populate({
+                    path: "articulos",
+                    select: { existencias: 0, __v: 0 },
+                })
+                .exec()
+                .then((Tickets) => {
+                    res.status(200).json({
+                        success: true,
+                        message: "Tickets encontrados",
+                        ticketsFound: Tickets,
+                    });
+                })
+                .catch((err) => {
+                    res.status(500).json({
+                        success: false,
+                        message: "No se pudo encontrar tickets en la coleccion",
+                        error: err.message,
+                    });
+                })
+        );
     }
 
     findAllArticles(req, res) {
@@ -123,6 +139,35 @@ class MarketControllers {
             });
     }
 
+    findTicket(req, res) {
+        const ticketId = req.params.id;
+        return (
+            ticketModel
+                .findById(ticketId)
+                // Con el populate hacemos el enlace con la propiedad donde tenemos la referencia en el esquema y filtramos los campos a mostrar con el select
+                .populate({
+                    path: "articulos",
+                    select: { existencias: 0, __v: 0 },
+                })
+                .exec()
+                .then((Ticket) => {
+                    res.status(200).json({
+                        success: true,
+                        message: "Ticket encontrado",
+                        TicketFound: Ticket,
+                    });
+                })
+                .catch((err) => {
+                    res.status(500).json({
+                        success: false,
+                        message:
+                            "No se pudo encontrar el ticket en la coleccion",
+                        error: err.message,
+                    });
+                })
+        );
+    }
+
     updateArticle(req, res) {
         const articleId = req.params.id;
         return articleModel
@@ -145,6 +190,27 @@ class MarketControllers {
             });
     }
 
+    updateTicket(req, res) {
+        const ticketId = req.params.id;
+        return ticketModel
+            .findByIdAndUpdate(ticketId, { $set: req.body }, { new: true })
+            .exec()
+            .then((Ticket) => {
+                res.status(200).json({
+                    success: true,
+                    message: "Ticket actualizado",
+                    newTicket: Ticket,
+                });
+            })
+            .catch((err) => {
+                res.status(500).json({
+                    success: false,
+                    message: "No se pudo actualizar el ticket en la coleccion",
+                    error: err.message,
+                });
+            });
+    }
+
     deleteArticle(req, res) {
         const articleId = req.params.id;
         return articleModel
@@ -161,6 +227,27 @@ class MarketControllers {
                 res.status(500).json({
                     success: false,
                     message: "No se pudo eliminar el articulo en la coleccion",
+                    error: err.message,
+                });
+            });
+    }
+
+    deleteTicket(req, res) {
+        const ticketId = req.params.id;
+        return ticketModel
+            .findByIdAndDelete(ticketId)
+            .exec()
+            .then((Ticket) => {
+                res.status(204).json({
+                    success: true,
+                    message: "Ticket eliminado",
+                    TicketDeleted: Ticket,
+                });
+            })
+            .catch((err) => {
+                res.status(500).json({
+                    success: false,
+                    message: "No se pudo eliminar el ticket en la coleccion",
                     error: err.message,
                 });
             });

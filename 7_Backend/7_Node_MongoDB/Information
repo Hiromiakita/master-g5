@@ -60,8 +60,6 @@ tocino: { type: Number, required: [true, "Debes colocar tocino"] },
             },
         });
 
-
-
 \*Modelos: Son los responsables de crear y leer los documentos de la base de datos. Trabajan en base a un esquema y a la instancia de un modelo se conoce como documento.
 
 //Creacion del modelo
@@ -86,3 +84,46 @@ bebida: "Malteada",
             .catch((err) => {
                 console.log("El registro no se guardo con exito", err);
             });
+
+-- RELACIONES EN MONGO DB
+
+\*Si existen muchas relaciones en nuestra base de datos, quizas es mejor utilizar una base de datos relacional.
+
+\*En mongo existen relaciones pero debemos manejarlas a traves de campos de referencia, es el enfoque mas parecido a las relaciones en una base de datos SQL en donde se establece un campo que nos indicaba con que otro registro esta relacionada la informacion. En mongo, este campo el que tiene el atributo ref, y este atributo es algo asi como una llave foranea. Ej:
+
+ticketSchema = new Schema({
+subtotal: { type: Number, default: 0 },
+total: { type: Number, default: 0 },
+IVA: { type: Number, default: 0 },
+articulos: [
+{
+type: mongoose.Schema.Types.ObjectId,
+ref: "Articulo",
+},
+],
+});
+
+\*Populate: es el proceso de colocar automaticamente los documentos de una coleccion en otra coleccion o colecciones. Ej:
+
+findAllTickets(req, res) {
+return ticketModel
+.find()
+.populate({ path: "articulos", select: "precio" })
+.exec()
+.then((Tickets) => {
+res.status(200).json({
+success: true,
+message: "Tickets encontrados",
+ticketsFound: Tickets,
+});
+})
+
+****\*****MANEJO DE SUBIDA DE ARCHIVOS AL BACKEND******\*******
+
+\*ALMECENAR ARCHIVOS EN LA BASE DE DATOS:
+BLOB (Binary Large Object)
+
+\*ALMACENAR ARCHIVOS EN EL SERVIDOR DE LA APLICACION (IaaS)
+
+\*ALMACENAR ARCHIVOS EN SERVICIOS DE TERCEROS COMO "BUCKETS"
+AMAZON S3 DE AWS, Google Cloud Storage, Cloudinary

@@ -1,7 +1,10 @@
+// Importamos mongoose para hacer la conexion con MongoDB
 const mongoose = require("mongoose");
 // importamos express y lo guardamos en "app" para utilizar sus metodos
 const express = require("express");
 const app = express();
+
+//Importamos las rutas para que la app tenga acceso a todas ellas
 const marketRoutes = require("./routes/marketRoutes");
 
 // Declaramos el puerto donde correra el servidor local
@@ -14,8 +17,10 @@ app.use(
     })
 );
 
+// Utilizamos el endpoint "api" para todas las rutas, por ejemplo: https://localhost:3000/api/nombre-de-ruta
 app.use("/api", marketRoutes);
 
+// Hacemos la conexion a nuestra cluster MongoDb mediante el string de conexion
 mongoose
     .connect(
         "mongodb+srv://manu:KWHE6zaLIYDAfl6M@devf.owinl.mongodb.net/Devf?retryWrites=true&w=majority"
