@@ -1,18 +1,53 @@
+const storage = require("../utils/storage");
+
 //Importamos el archivos de modelos.
 const marketModels = require("../model/supermarket");
 
 // Invocamos a ambos modelos para que se puedan hacer las operaciones CRUD
 const articleModel = marketModels.articleModel;
 const ticketModel = marketModels.ticketModel;
+const fileModel = marketModels.filesModel;
 
 // Hacemos una clase que contiene los distintos metodos CRUD para los esquemas de articulos y tickets
 class MarketControllers {
-    createArticle = (req, res) => {
+    async uploadFiles(req, res) {
+        if (req.file) {
+            const url = await storage(req.file);
+            req.body.file = url;
+        }
+        // Creamos una nueva instancia del modelo para guardar dentro de el los datos que le mande en la peticion y se intente crear un nuevo documento (registro)
+        const file = new fileModel({
+            file: req.body.file,
+        });
+        return file
+            .save()
+            .then((newFile) => {
+                res.status(201).json({
+                    success: true,
+                    message: "Archivo agregado a la coleccion",
+                    articleCreated: newFile,
+                });
+            })
+            .catch((err) => {
+                res.status(500).json({
+                    success: false,
+                    message: "No se pudo agregar el archivo a la coleccion",
+                    error: err.message,
+                });
+            });
+    }
+
+    async createArticle(req, res) {
+        if (req.file) {
+            const url = await storage(req.file);
+            req.body.picture = url;
+        }
         // Creamos una nueva instancia del modelo para guardar dentro de el los datos que le mande en la peticion y se intente crear un nuevo documento (registro)
         const article = new articleModel({
             nombre: req.body.nombre,
             precio: req.body.precio,
             existencias: req.body.existencias,
+            article_pic: req.body.picture,
         });
         return article
             .save()
@@ -30,7 +65,7 @@ class MarketControllers {
                     error: err.message,
                 });
             });
-    };
+    }
 
     createTicket = (req, res) => {
         // INVESTIGAR COMO PODEMOS AGREGAR MAS DE UN ARTICULO AL TICKET
