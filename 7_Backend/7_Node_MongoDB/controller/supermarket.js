@@ -1,3 +1,4 @@
+//Importamos nuestro archivo de storage de Google Cloud y Firebase
 const storage = require("../utils/storage");
 
 //Importamos el archivos de modelos.
@@ -11,6 +12,7 @@ const fileModel = marketModels.filesModel;
 // Hacemos una clase que contiene los distintos metodos CRUD para los esquemas de articulos y tickets
 class MarketControllers {
     async uploadFiles(req, res) {
+        //Evaluamos si viene un archivo el la peticion y de ser asi es procesado por el nuestro storage.js que es el encargado de subir el arhivo a firebase y devolvernos la url de ese archivo una vez se haya subido
         if (req.file) {
             const url = await storage(req.file);
             req.body.file = url;
@@ -38,6 +40,7 @@ class MarketControllers {
     }
 
     async createArticle(req, res) {
+        //Evaluamos si viene un archivo el la peticion y de ser asi es procesado por el nuestro storage.js que es el encargado de subir el arhivo a firebase y devolvernos la url de ese archivo una vez se haya subido
         if (req.file) {
             const url = await storage(req.file);
             req.body.picture = url;

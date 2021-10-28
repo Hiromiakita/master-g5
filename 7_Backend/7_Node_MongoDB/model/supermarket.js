@@ -15,11 +15,12 @@ articleSchema = new Schema({
     nombre: { type: String, required: true },
     precio: { type: Number, required: true },
     existencias: { type: Number, required: true },
+    // Propiedad para adjuntar una imagen al articulo
     article_pic: {
         type: String,
         default:
-            "https://www.holded.com/wp-content/uploads/2020/09/ciclo-de-vida-de-un-producto-4.png",
-    }, // Propiedad para adjuntar una imagen al articulo
+            "https://www.holded.com/wp-content/uploads/2020/09/ciclo-de-vida-de-un-producto-4.png", //si no viene imagen, se guarda esa por defecto
+    },
 });
 
 // Creamos el esquema para los tickets
