@@ -3,12 +3,14 @@ const mongoose = require("mongoose");
 // importamos express y lo guardamos en "app" para utilizar sus metodos
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
 
 //Importamos las rutas para que la app tenga acceso a todas ellas
 const marketRoutes = require("./routes/marketRoutes");
 
 // Declaramos el puerto donde correra el servidor local
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Decodificamos el body que menmanda el servidor para poder leerlo
 app.use(
@@ -23,7 +25,7 @@ app.use("/api", marketRoutes);
 // Hacemos la conexion a nuestra cluster MongoDb mediante el string de conexion
 mongoose
     .connect(
-        "mongodb+srv://manu:KWHE6zaLIYDAfl6M@devf.owinl.mongodb.net/Devf?retryWrites=true&w=majority"
+        `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@devf.owinl.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
     )
     .then(() => {
         console.log("Conectado a la base de datos");

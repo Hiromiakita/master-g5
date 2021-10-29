@@ -12,11 +12,6 @@ const fileModel = marketModels.filesModel;
 // Hacemos una clase que contiene los distintos metodos CRUD para los esquemas de articulos y tickets
 class MarketControllers {
     async uploadFiles(req, res) {
-        //Evaluamos si viene un archivo el la peticion y de ser asi es procesado por el nuestro storage.js que es el encargado de subir el arhivo a firebase y devolvernos la url de ese archivo una vez se haya subido
-        if (req.file) {
-            const url = await storage(req.file);
-            req.body.file = url;
-        }
         // Creamos una nueva instancia del modelo para guardar dentro de el los datos que le mande en la peticion y se intente crear un nuevo documento (registro)
         const file = new fileModel({
             file: req.body.file,
@@ -40,11 +35,6 @@ class MarketControllers {
     }
 
     async createArticle(req, res) {
-        //Evaluamos si viene un archivo el la peticion y de ser asi es procesado por el nuestro storage.js que es el encargado de subir el arhivo a firebase y devolvernos la url de ese archivo una vez se haya subido
-        if (req.file) {
-            const url = await storage(req.file);
-            req.body.picture = url;
-        }
         // Creamos una nueva instancia del modelo para guardar dentro de el los datos que le mande en la peticion y se intente crear un nuevo documento (registro)
         const article = new articleModel({
             nombre: req.body.nombre,
