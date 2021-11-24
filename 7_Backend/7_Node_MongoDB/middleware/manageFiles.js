@@ -2,7 +2,7 @@ const uploadImage = require("../utils/storage");
 const dotenv = require("dotenv");
 dotenv.config();
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     if (process.env.NODE_ENV === "production") {
         //Evaluamos si viene un archivo el la peticion y de ser asi es procesado por el nuestro storage.js que es el encargado de subir el arhivo a firebase y devolvernos la url de ese archivo una vez se haya subido
         if (req.file) next(); //Otorgamos el control a el proceso uploadImage
