@@ -24,14 +24,18 @@ app.use("/api", marketRoutes);
 
 // Hacemos la conexion a nuestra cluster MongoDb mediante el string de conexion
 mongoose
-    .connect(
-        `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@devf.owinl.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+.connect(
+    //Base de datos local utilizando mongo desde Docker Hub
+    `mongodb://db:27017/${process.env.DB_DOCKER_NAME}`
+
+    //Base de datos de Mongo Atlas
+        // `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@devf.owinl.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
     )
     .then(() => {
         console.log("Conectado a la base de datos");
     })
     .catch((err) => {
-        console.log("Error al conectarse a la base de datos", err);
+        console.log("Error al conectarse a la base de datos");
     });
 
 // Mandamos un mensaje cuando se acceda a la ruta raiz de mi servidor local

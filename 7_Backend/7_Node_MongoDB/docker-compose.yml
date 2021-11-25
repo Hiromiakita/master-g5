@@ -1,0 +1,43 @@
+#Aqui van las instrucciones para crear multiples contenedores (En este caso: API y base de datos)
+
+#Version de docker compose a utilizar
+version: "3"
+
+#El services es para definir que proyectos va a levantar el docker compose
+services:
+  #web hace referencia a nuestro proyecto backend (la API)
+  web:
+    #Ejecuta el docker file para crear la imagen y luego contenedor
+    build: .
+
+    #Es el puerto de mi computadora que hace puente con el puerto de mi contenedor
+    ports:
+      - "4000:3000"
+
+    #Definimos que el proyecto web depende de un proyecto de base de datos
+    depends_on:
+      - db
+      #Accedemos al archivo de variables de entorno
+    env_file:
+      - .env
+      
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+      #db hace referencia a nuestra base de datos
+  db:
+    #Indicamos que instalaremos la base de datos desde docker hub
+    image: mongo    
+    restart: always
+    #Indicamos que la base de datos utilizara ese puerto en el contenedor
+    expose:
+      - "27017"
+    #Directorio para almacenar la informacion de la base de datos y que esta no se elimine al hacer un re-build
+    volumes:
+      - mongodata:/data/db
+
+#El volumes ayuda a persistir los datos de la base de datos y no se pierdan al reiniciar contenedores
+volumes:
+  mongodata:
+
