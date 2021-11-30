@@ -26,10 +26,10 @@ app.use("/api", marketRoutes);
 mongoose
 .connect(
     //Base de datos local utilizando mongo desde Docker Hub
-    `mongodb://db:27017/${process.env.DB_DOCKER_NAME}`
+    // `mongodb://db:27017/${process.env.DB_DOCKER_NAME}`
 
     //Base de datos de Mongo Atlas
-        // `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@devf.owinl.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+        `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@devf.owinl.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
     )
     .then(() => {
         console.log("Conectado a la base de datos");

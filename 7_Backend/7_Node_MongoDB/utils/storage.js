@@ -1,11 +1,11 @@
 const { Storage } = require("@google-cloud/storage");
 
 const storage = new Storage({
-    projectId: "upload-files-node-mongo-3933d",
+    projectId: process.env.FIREBASE_PROJECT_ID,
     keyFilename: "service.json",
 });
 
-const bucket = storage.bucket("upload-files-node-mongo-3933d.appspot.com");
+const bucket = storage.bucket(process.env.FIREBASE_BUCKET_URL);
 
 module.exports = (file) => {
     return new Promise((resolve, reject) => {
