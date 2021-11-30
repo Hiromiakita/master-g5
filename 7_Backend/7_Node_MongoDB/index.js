@@ -47,3 +47,5 @@ app.get("/", (request, response) => {
 app.listen(PORT, () => {
     console.log(`Aplicacion corriendo en el puerto ${PORT}`);
 });
+
+module.exports = app;
