@@ -10,7 +10,7 @@ dotenv.config();
 const marketRoutes = require("./routes/marketRoutes");
 
 // Declaramos el puerto donde correra el servidor local
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 // Decodificamos el body que menmanda el servidor para poder leerlo
 app.use(
