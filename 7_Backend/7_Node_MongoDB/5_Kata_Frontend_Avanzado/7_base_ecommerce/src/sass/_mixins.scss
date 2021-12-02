@@ -1,0 +1,41 @@
+@import './variables.scss';
+
+// Mixin -> Agrupación de instrucciones que se van a repetir @mixin - @include
+
+@mixin colores-base1 {
+    background-color: $color-principal;
+    color: white;
+}
+
+@mixin colores-base2 {
+    background-color: $color-secundario;
+    color: white;
+}
+
+// mixin dentro mixin
+
+@mixin boton-basico1 {
+    @include colores-base1;
+    border-radius: 15px;
+    padding: $padding-button;
+}
+
+// mixin con argumentos
+
+// @mixin boton-dinamico($bgc, $col, $b-radius) {
+//     background-color: $bgc;
+//     color: $col;
+//     border-radius: $b-radius;
+//     border: none;
+//     padding: $padding-button;
+// }
+
+// mixin con argumentos predefinidos
+
+@mixin boton-dinamico($bgc: blue, $col: green, $b-radius: 15px) {
+    background-color: $bgc;
+    color: $col;
+    border-radius: 15px;
+    border: none;
+    padding: $padding-button;
+}

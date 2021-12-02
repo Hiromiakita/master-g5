@@ -1,0 +1,13 @@
+1. Descargar postgreSql
+2. Descargar PGAdmin
+3. Ejecutar el instalador de postgreSql (CON PERMISOS DE ADMINISTRADOR)
+4. Damos click en siguiente y hay una parte que nos pide asignar una contrasena, asignamos cualquiera
+5. Nos pide un puerto, dejamos el que esta por defecto
+6. Esperamos a que la instalacion se lleve a cabo
+7. Deschequeamos en la ultima pantalla el checkbox que nos aparece
+8. Aqui ya tenemos instalado el gestor de base de datos (postgreSql) 
+9.Ejecutar el instalador de PGAdmin (CON PERMISOS DE ADMINISTRADOR)
+10. Dar click en siguiente de todas las ventanas que aparezcan y esperar a que se instale. (Es probable que nos pida instalar el paquete de visual c++, en el caso de windows)
+
+11.En el caso de windows seguramente nos pedira reiniciar la computadora, la reiniciamos.
+12. Buscamos la aplicacion de pg admin y la iniciamos. Nos pedira la contrasena que creamos en los primeros pasos.

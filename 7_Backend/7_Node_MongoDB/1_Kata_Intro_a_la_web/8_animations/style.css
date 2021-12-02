@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    height: 800px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TRANSICIONES */
+.imagen {
+    width: 100px;
+    height: 100px;
+
+    /* transition: all 3s ease-in-out 1s; */
+    /* animation: escala linear infinite 10s 3s; */
+    transform: translate(100px, 200px);
+    transition: all 5s ease;
+}
+.imagen:hover {
+    background-color: blue;
+    transition: all 5s ease;
+    transform: translate(200px, 100px);
+}
+/* 
+.input {
+    width: 200px;
+    height: 25px;
+    transition: all 3s ease-in 1s;
+}
+
+.input:focus {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+} */
+
+/* ANIMACIONES */
+@keyframes changeColor {
+    /* from {
+        background-color: green;
+    }
+    to {
+        background-color: blue;
+    } */
+
+    0% {
+        background-color: red;
+    }
+    25% {
+        background-color: yellow;
+        width: 100px;
+    }
+    50% {
+        background-color: blue;
+        width: 50px;
+    }
+    100% {
+        background-color: green;
+        width: 100px;
+    }
+}
+
+/* TRANSFORMACIONES */
+@keyframes rotacion {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes escala {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1.25);
+    }
+}
