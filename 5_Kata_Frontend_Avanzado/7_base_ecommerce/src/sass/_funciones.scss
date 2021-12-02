@@ -1,0 +1,9 @@
+// funciones -> ayudar a hacer cálculos
+
+@function calcularAltura($ancho) {
+    @return $ancho * 1.8;
+}
+
+@function crecerBoton($width) {
+    @return $width * 1.2;
+}

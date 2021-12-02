@@ -1,2 +1,7 @@
-service.json
+/x_examples
+
+.gitignore
+
 node_modules
+
+Ejercicios/Kata_Backend/.env

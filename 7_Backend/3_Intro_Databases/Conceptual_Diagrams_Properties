@@ -1,0 +1,21 @@
+ENTIDADES (TABLAS)
+
+Entidades fuertes: No depende de otra entidad para existir. Se representan mediante un rectangulo.
+Entidades debiles: Dependen de otras para poder existir. Se representa por un reactangulo con doble linea.
+
+
+ATRIBUTOS (CARACTERISTICAS)
+
+Simples: Son aquellos que no se pueden dividir y representan una caracteristica basica. Se representa con un ovalo
+Compuestos: Son aquellos que se dividen en otros atributos simples. Tambien se representa con un ovalo
+Multi valuado: Son aquellos que pueden tener mas de un valor. Se representa con un ovalo con doble linea
+Atributo derivado: son aquellos que su valor depende de otro valor. Se representa por medio de un ovalo punteado
+
+
+
+LLAVES (VALORES UNICOS DE UNA ENTIDAD)
+
+Llaves primarias: identifican de forma unica a cada registro de una tabla o entidad fuerte. Se representa subrayando el nombre de la llave primaria.
+
+Llaves foraneas: identifican de forma unica  a cada registro de una entidad que esta relacionada con otra entidad. Se representa subrayando el nombre de la llave foranea, pero punteada.
+

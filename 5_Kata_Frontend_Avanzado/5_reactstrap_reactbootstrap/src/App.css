@@ -1,0 +1,170 @@
+.App {
+    text-align: center;
+}
+
+.block {
+    width: 100px;
+    height: 3px;
+    background: #56ffaa;
+    margin: 1rem auto;
+    opacity: 0.7;
+}
+/* filter:grayscale(100%) */
+.navbar {
+    background: transparent !important;
+    width: 100%;
+}
+@media (max-width: 767px) {
+    .navbar {
+        background: linear-gradient(to right, #38ef7d, #20c997) !important;
+    }
+    .nav-link {
+        color: white !important;
+    }
+}
+.navbar-brand {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.671);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(0, 255, 180);
+}
+.nav-link {
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.671);
+}
+
+.element3 {
+    background: white;
+
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrap3 {
+    width: 90%;
+}
+.img1 {
+    background-image: url(images/computer.svg);
+    width: 200px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+}
+.img2 {
+    background-image: url(images/graph.svg);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    margin: auto;
+}
+.img3 {
+    background-image: url(images/list.svg);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    margin: auto;
+}
+.img4 {
+    background-image: url(images/window.svg);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    margin: auto;
+}
+.wrap3 h1 {
+    margin-bottom: 3rem;
+}
+.wrap3 h2 {
+    font-weight: 300;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.wrap3 p {
+    margin-bottom: 3rem;
+}
+.element4 {
+    background: transparent;
+}
+.photo {
+    height: 300px;
+    opacity: 1;
+}
+.photo1 {
+    background-image: url(images/andre.jpg);
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.photo1 h1,
+.photo2 h1,
+.photo3 h1,
+.photo4 h1,
+.photo5 h1,
+.photo6 h1 {
+    display: none;
+    color: white;
+    font-size: 7rem;
+    font-weight: 300;
+}
+.photo1:hover h1,
+.photo2:hover h1,
+.photo3:hover h1,
+.photo4:hover h1,
+.photo5:hover h1,
+.photo6:hover h1 {
+    display: flex;
+}
+.photo2 {
+    background-image: url(images/charles.jpg);
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.photo3 {
+    background-image: url(images/deluvio.jpg);
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.photo4 {
+    background-image: url(images/elizabeth.jpg);
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.photo5 {
+    background-image: url(images/lucas.jpg);
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.photo6 {
+    background-image: url(images/ishan.jpg);
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.photo:hover {
+    opacity: 0.5;
+    background-position: bottom;
+    transition: all 1400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
