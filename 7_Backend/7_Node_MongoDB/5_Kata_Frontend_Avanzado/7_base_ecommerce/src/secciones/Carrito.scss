@@ -1,9 +1,0 @@
-@import '../sass/mixins.scss';
-@import "../sass/sizes";
-
-.carrito {
-    height: 10rem;
-    text-align: center;
-    padding: $padding-general;
-    @include colores-base1;
-}
