@@ -1,18 +1,20 @@
+const dotenv = require('dotenv')
 const { Storage } = require("@google-cloud/storage");
 
+dotenv.config()
+
 const storage = new Storage({
-    projectId: "upload-files-node-mongo-3933d",
+    projectId: process.env.FIREBASE_PROJECT_ID,
     keyFilename: "service.json",
 });
 
-const bucket = storage.bucket("upload-files-node-mongo-3933d.appspot.com");
+const bucket = storage.bucket(process.env.FIREBASE_BUCKET_URL);
 
 module.exports = (file) => {
     return new Promise((resolve, reject) => {
         if (!file) reject("No hay ningun archivo");
         const newFilename = `${file.originalname}_${Date.now()}`; //Renombramos el archivo
         const fileUpload = bucket.file(newFilename); //Le indicamos al bucket cual es el archivo a subir
-
         const blobStream = fileUpload.createWriteStream({
             //Mandamos el archivo por pedacitos
             metadata: {
